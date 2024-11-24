@@ -8,3 +8,6 @@ In this project, I developed a system to estimate vehicle speed from acceleratio
 [View Code](https://github.com/parsa-karami/Machine-Learning-Based-Speed-Detection-System-with-ADXL345-and-GPS-Validation.git)
 - **Driving Cycle**  
 I led our team in the Rah Neshan Competition to analyze Tehran's driving cycles and identify optimal locations for electric bus charging stations. The project involved defining micro trips and clustering data into categories based on route types and traffic conditions to enhance accuracy. Our innovative approach earned us a fourth place in the competition.  
+
+- **Smart Bag**  
+My friend and I developed an innovative smart bag to help users avoid forgetting essential items, such as school books. The system employed RFID technology, using RFID tags to detect and track items placed in the bag and triggering an alarm when an item was missing. This solution's adaptability makes it suitable for various applications across diverse settings.  
