@@ -11,3 +11,7 @@ I led my team in the Rah Neshan Competition, where we analyzed Tehran's driving 
 
 - **Smart Bag**  
 My friend and I developed an innovative smart bag to help users avoid forgetting essential items, such as school books. The system employed RFID technology, using RFID tags to detect and track items placed in the bag and triggering an alarm when an item was missing. This solution's adaptability makes it suitable for various applications across diverse settings.  
+
+## Resume 
+In the link below, you can download my curriculum vitae(CV)
+[Download CV](CV.pdf)
