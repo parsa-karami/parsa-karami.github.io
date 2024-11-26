@@ -17,12 +17,16 @@ In the link below, you can download my curriculum vitae(CV)
 [Download CV](CV.pdf)  
 
 ## Skills
-- **Programming Language**: C/C++, Python(experienced with Numpy, Pandas, Matplotlib, Scikit-Learn, Keras, and Seaborn)
-- **Hardware Description Language**: VHDL
-- **Software**: Proteus, HSpice, Altium Designer, Atmel Studio, Codevision, Microsoft Office, LaTeX
-- **Operating Systems**: Linux(Red Hat distribution)  
+- **Programming Language:** C/C++, Python(experienced with Numpy, Pandas, Matplotlib, Scikit-Learn, Keras, and Seaborn)
+- **Hardware Description Language:** VHDL
+- **Software:** Proteus, HSpice, Altium Designer, Atmel Studio, Codevision, Microsoft Office, LaTeX
+- **Operating Systems:** Linux(Red Hat distribution)  
 
 ## Extracurricular Activities  
 I enjoy a variety of activities that enrich my life and keep me active. As a former volleyball player, I have a deep love for volleyball and other sports, especially chess and swimming. I’m also an avid gamer, with Dota 2 being one of my favorites.
 
 Beyond sports and gaming, I am passionate about coffee—both brewing it and exploring its origins and culture. Additionally, I find joy in helping others. In 2018 and 2020, I volunteered as an assistant cook, preparing meals for underprivileged people in my hometown, Bileqan.
+
+## Contact Information
+[Email](karami.parsa2001@gmail.com)
+[LinkedIn](www.linkedin.com/in/parsa-karami-a8a27916a)
