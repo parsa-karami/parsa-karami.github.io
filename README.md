@@ -30,4 +30,4 @@ Beyond sports and gaming, I am passionate about coffee—both brewing it and exp
 ## Contact Information
 - **Email:** karami.parsa2001@gmail.com  
 - **GitHub:** [GitHub](https://github.com/parsa-karami)  
-- **LinkedIn:** [LinkedIn](www.linkedin.com/in/parsa-karami-a8a27916a)
+- **LinkedIn:** [LinkedIn](https://linkedin.com/in/parsa-karami)
