@@ -28,5 +28,5 @@ I enjoy a variety of activities that enrich my life and keep me active. As a for
 Beyond sports and gaming, I am passionate about coffee—both brewing it and exploring its origins and culture. Additionally, I find joy in helping others. In 2018 and 2020, I volunteered as an assistant cook, preparing meals for underprivileged people in my hometown, Bileqan.
 
 ## Contact Information
-[Email](karami.parsa2001@gmail.com)
+[Email](karami.parsa2001@gmail.com)  
 [LinkedIn](www.linkedin.com/in/parsa-karami-a8a27916a)
