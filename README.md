@@ -13,5 +13,16 @@ I led my team in the Rah Neshan Competition, where we analyzed Tehran's driving 
 My friend and I developed an innovative smart bag to help users avoid forgetting essential items, such as school books. The system employed RFID technology, using RFID tags to detect and track items placed in the bag and triggering an alarm when an item was missing. This solution's adaptability makes it suitable for various applications across diverse settings.  
 
 ## Resume 
-In the link below, you can download my curriculum vitae(CV)
-[Download CV](CV.pdf)
+In the link below, you can download my curriculum vitae(CV)  
+[Download CV](CV.pdf)  
+
+## Skills
+- **Programming Language**: C/C++, Python(experienced with Numpy, Pandas, Matplotlib, Scikit-Learn, Keras, and Seaborn)
+- **Hardware Description Language**: VHDL
+- **Software**: Proteus, HSpice, Altium Designer, Atmel Studio, Codevision, Microsoft Office, LaTeX
+- **Operating Systems**: Linux(Red Hat distribution)  
+
+## Extracurricular Activities  
+I enjoy a variety of activities that enrich my life and keep me active. As a former volleyball player, I have a deep love for volleyball and other sports, especially chess and swimming. I’m also an avid gamer, with Dota 2 being one of my favorites.
+
+Beyond sports and gaming, I am passionate about coffee—both brewing it and exploring its origins and culture. Additionally, I find joy in helping others. In 2018 and 2020, I volunteered as an assistant cook, preparing meals for underprivileged people in my hometown, Bileqan.
