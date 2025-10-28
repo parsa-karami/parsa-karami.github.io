@@ -609,28 +609,28 @@
         <div class="modal-content">
             <span class="close" onclick="closeModal('modal1')">&times;</span>
             <h3>Indoor Tracking with BLEs</h3>
-            <p>Full explanation about this project.</p>
+            <p>The indoor tracking project aimed to estimate a target location in GPS-denial environments, where we cannot navigate or locate assets. During this project I tried different approaches, but none of them satisfy my expectation I want under 1.5m error. Traditional methods only encountered this error with BLE 4.2, which was the Bluetooth version I had to use. Therefore, I invented a novel, robust approach that was unaffected by environmental changes. In this approach, I use the strongest RSSI reading as the primary point, then draw a circle around the strongest beacon. In the next step, innovative weighting systems assign weights to the RSSI values of neighbor beacons and help estimate the target location. In the project, the yield was almost 75cm, which was not reached with this BLE version.</p>
         </div>
     </div>
     <div id="modal2" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('modal2')">&times;</span>
             <h3>Person Detection on ESP32-CAM</h3>
-            <p>Full explanation about this project.</p>
+            <p>In this project, my team and I fine-tuned a YOLOv11 model for deployment on an ESP32-S3-CAM, which has only 8 MB of flash and 4 MB of PSRAM. Our first model took 26 seconds to process and estimate the number of people in a frame, which was not good for us at all. Therefore, we reduced the model size and, through adjustments, reached 4 seconds. It was also not appropriate; we even had to take a step further and reduce the model to 1MB, reaching 250ms at the end.</p>
         </div>
     </div>
     <div id="modal3" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('modal3')">&times;</span>
             <h3>Speed Prediction Using Accelerometer</h3>
-            <p>Full explanation about this project.</p>
+            <p>During one of my last projects, I encountered a problem in which I could not calculate speed from acceleration data due to white noise, sensor biases, and sensor inaccuracies. As a result, I decided to overcome this challenge with machine learning algorithms. At the first step, I used the Neo-M8 GPS sensor to collect speed data for my labels, and the ADXL345 for my acceleration data. I then synchronized them. In the next step, I performed feature engineering on the acceleration data to extract additional information. I used various machine learning algorithms, including linear regression, decision trees, XGBoost, and neural networks, to predict speed from acceleration. At the end, I reached 12% RMSE on a 0-120km scale. </p>
         </div>
     </div>
     <div id="modal4" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('modal4')">&times;</span>
             <h3>Driving Cycle of Tehran</h3>
-            <p>Full explanation about this project.</p>
+            <p>The driving cycle project was meant to extract data on the driving cycle in Tehran. The final goal of this project was to determine the optimal location for an electric bus charging station in Tehran. In this project, my team and I collect data and present the Tehran driving cycle under four conditions: highway, urban, and congested. We divided our whole trip into micro-trips when the speed dropped to zero and the car stopped.</p>
         </div>
     </div>
 
@@ -702,6 +702,7 @@
 </body>
 
 </html>
+
 
 
 
