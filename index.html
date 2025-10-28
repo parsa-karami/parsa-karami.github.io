@@ -346,73 +346,113 @@
         /* Contact */
         .contact {
             padding: 80px 10%;
-            background: #f0f0f0;
+            background: #fff; /* White background for the section */
         }
 
         .contact-container {
             display: flex;
             flex-wrap: wrap;
-            gap: 40px;
+            gap: 60px; /* Increased gap between form and info */
+            justify-content: center;
         }
 
         .contact-form,
         .contact-info {
-            flex: 1 1 45%;
-            min-width: 300px;
+            flex: 1 1 400px; /* Flex properties for responsiveness */
+            min-width: 320px;
+        }
+        
+        .contact-form h3 {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: #555;
+            margin-bottom: 30px;
         }
 
         .contact-form label {
             display: block;
-            margin: 10px 0 5px;
+            margin: 15px 0 8px;
             font-weight: 500;
+            color: #333;
         }
 
         .contact-form input,
         .contact-form textarea {
             width: 100%;
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            background: #fff;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            background: #f7f7f7; /* Light gray background for inputs */
             font-size: 1rem;
+        }
+        
+        .contact-form textarea {
+            min-height: 120px;
+            resize: vertical;
         }
 
         .contact-form button {
-            margin-top: 15px;
-            padding: 12px 30px;
+            margin-top: 20px;
+            padding: 15px 35px;
             border: none;
-            background: #0073ff;
+            background: #000; /* Black button */
             color: #fff;
-            border-radius: 6px;
+            border-radius: 8px;
             cursor: pointer;
             font-size: 1rem;
+            font-weight: 500;
             transition: background 0.3s;
         }
 
         .contact-form button:hover {
-            background: #0056cc;
+            background: #333;
         }
 
         .contact-info .info-box {
             background: #fff;
             padding: 25px;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             border-radius: 8px;
+            border: 1px solid #e9e9e9; /* Subtle border */
+        }
+        
+        .contact-info .info-box h3 {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
         }
 
         .contact-info ul {
             list-style: none;
-            margin-top: 15px;
         }
 
         .contact-info li {
-            margin: 10px 0;
-            color: #666;
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+        
+        .contact-info li:last-child {
+            margin-bottom: 0;
+        }
+
+        .contact-info li a {
+            text-decoration: none;
+            color: #333;
+            display: flex;
+            align-items: center;
+            font-weight: 500;
         }
 
         .contact-info i {
-            margin-right: 10px;
-            color: #0073ff;
+            font-size: 1.4rem;
+            margin-right: 15px;
+            width: 25px;
+            text-align: center;
+            color: #555;
+        }
+        
+        .contact-info .info-box p {
+            color: #666;
+            line-height: 1.7;
         }
 
         footer {
@@ -421,6 +461,7 @@
             background: #fff;
             color: #666;
             font-size: 0.9rem;
+            border-top: 1px solid #e9e9e9;
         }
 
         /* Responsive */
@@ -595,37 +636,35 @@
 
     <!-- Contact -->
     <section id="contact" class="contact">
-        <h2 class="section-title">Get in Touch</h2>
-        <p class="section-subtitle">I'd love to hear from you</p>
-        <div class="contact-container">
-            <div class="contact-form">
-                <label for="name">Name</label>
-                <input type="text" id="name" placeholder="Name">
-                <label for="email">Email</label>
-                <input type="email" id="email" placeholder="Your email">
-                <label for="message">Message</label>
-                <textarea id="message" rows="4" placeholder="Your message"></textarea>
-                <button type="submit">Send Message</button>
+    <div class="contact-container">
+        <div class="contact-form">
+            <h3>If there is any question about my project I appreciate to answer and help</h3>
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="Your name">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="karami.parsa2001@gmail.com">
+            <label for="message">Message</label>
+            <textarea id="message" rows="4" placeholder=""></textarea>
+            <button type="submit">Send Message</button>
+        </div>
+
+        <div class="contact-info">
+            <div class="info-box">
+                <h3>Find me on these platforms</h3>
+                <ul>
+                    <!-- Links are now clickable -->
+                    <li><a href="mailto:karami.parsa2001@gmail.com"><i class="fas fa-envelope"></i> Email</a></li>
+                    <li><a href="https://www.linkedin.com/in/parsa-karami-5b335321a/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                    <li><a href="https://github.com/parsa-karami" target="_blank"><i class="fab fa-github"></i> GitHub</a></li>
+                </ul>
             </div>
-
-            <div class="contact-info">
-                <div class="info-box">
-                    <h3>Connect with Me</h3>
-                    <p>Find me on these platforms:</p>
-                    <ul>
-                        <li><i class="fas fa-envelope"></i> your-email@example.com</li>
-                        <li><i class="fab fa-github"></i> github.com/yourusername</li>
-                        <li><i class="fab fa-linkedin"></i> linkedin.com/in/yourprofile</li>
-                    </ul>
-                </div>
-
-                <div class="info-box">
-                    <h3>Let's Work Together</h3>
-                    <p>Whether you have a question or just want to say hi, feel free to reach out!</p>
-                </div>
+            <div class="info-box">
+                <h3>Let's Work Together</h3>
+                <p>Whether you have a question or just want to say hi, feel free to reach out!</p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <footer>
         <p>© 2025 Parsa Karami. All rights reserved.</p>
@@ -663,6 +702,7 @@
 </body>
 
 </html>
+
 
 
 
