@@ -213,17 +213,27 @@
             gap: 10px;
             width: auto;
             transition: transform 0.3s;
-            background: transparent; /* Remove background */
+            background: transparent; /* No box around text */
         }
         
         .skill:hover {
             transform: translateY(-5px);
         }
         
+        .icon-container {
+            width: 80px;
+            height: 80px;
+            background-color: #f0f0f0; /* Light gray circle */
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
         .icon {
-            font-size: 3rem; /* Larger icon */
-            margin-bottom: 10px;
-            color: #0073ff;
+            font-size: 2.5rem; /* Adjusted to match screenshot size */
+            color: #333; /* Dark gray/black to match screenshot */
         }
         
         .skill h3 {
@@ -236,6 +246,7 @@
             font-size: 1rem;
             color: #777;
             line-height: 1.6;
+            max-width: 200px; /* Approximate wrapping from screenshot */
         }
 
         /* Projects */
@@ -482,19 +493,25 @@
     <section id="skills" class="skills">
         <div class="skills-container">
             <div class="skill">
-                <div class="icon"><i class="fas fa-microchip"></i></div>
+                <div class="icon-container">
+                    <i class="fas fa-microchip icon"></i>
+                </div>
                 <h3>Embedded Systems</h3>
                 <p>Expert in AVR, Arduino, ESP32 and familiar with ARM architecture.</p>
             </div>
             <div class="skill">
-                <div class="icon"><i class="fas fa-wifi"></i></div>
+                <div class="icon-container">
+                    <i class="fas fa-wifi icon"></i>
+                </div>
                 <h3>IoT</h3>
                 <p>An IoT devotee who loves to connect devices to each other and collect data.</p>
             </div>
             <div class="skill">
-                <div class="icon"><i class="fas fa-brain"></i></div>
+                <div class="icon-container">
+                    <i class="fas fa-brain icon"></i>
+                </div>
                 <h3>AI</h3>
-                <p>Combining AI algorithms with embedded systems to develop smart solutions.</p>
+                <p>Combining AI algorithms with embedded systems or developing solutions from collected data to make things more interesting and easier.</p>
             </div>
         </div>
     </section>
@@ -646,5 +663,3 @@
 </body>
 
 </html>
-
-
