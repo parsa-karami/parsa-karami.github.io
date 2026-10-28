@@ -1,712 +1,385 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parsa Karami | Personal Website</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Roboto', sans-serif;
-        }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Parsa Karami | Embedded, Edge AI & Full-Stack Engineer</title>
+<meta name="description" content="Parsa Karami: embedded systems, edge AI, frontend and backend engineering." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #05060a;
+    --surface: rgba(255,255,255,0.04);
+    --border: rgba(255,255,255,0.08);
+    --text: #e7e9f0;
+    --muted: #8b90a3;
+    --a1: #7c5cff;
+    --a2: #22d3ee;
+    --a3: #f472b6;
+    --grad: linear-gradient(120deg, var(--a1), var(--a2) 55%, var(--a3));
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  a { color: inherit; text-decoration: none; }
+  code, .mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
 
-        body {
-            background: #f9f9f9;
-            color: #222;
-        }
+  #particles { position: fixed; inset: 0; z-index: -2; pointer-events: none; }
+  .glow {
+    position: fixed; width: 420px; height: 420px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(124,92,255,0.22), transparent 70%);
+    transform: translate(-50%, -50%); pointer-events: none; z-index: -1;
+    transition: opacity .3s;
+  }
 
-        /* Navbar */
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 10%;
-            background: rgba(255, 255, 255, 0.95);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-        }
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 18px 6vw;
+    backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    background: rgba(5,6,10,0.55); border-bottom: 1px solid var(--border);
+  }
+  .logo { font-weight: 800; letter-spacing: -0.02em; font-size: 1.1rem; }
+  .logo span { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  nav ul { display: flex; gap: 28px; list-style: none; }
+  nav a { color: var(--muted); font-size: .92rem; transition: color .2s; }
+  nav a:hover { color: var(--text); }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #222;
-        }
+  section { padding: 120px 6vw; position: relative; }
+  .label {
+    font-family: 'JetBrains Mono', monospace; font-size: .8rem;
+    color: var(--a2); letter-spacing: .15em; text-transform: uppercase;
+    margin-bottom: 14px; display: block;
+  }
+  h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; letter-spacing: -0.03em; margin-bottom: 16px; }
+  .sub { color: var(--muted); max-width: 620px; font-size: 1.05rem; }
 
-        .navbar ul {
-            list-style: none;
-            display: flex;
-            gap: 30px;
-        }
+  /* HERO */
+  .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding-top: 140px; }
+  .hero h1 { font-size: clamp(3rem, 8vw, 6.5rem); font-weight: 800; letter-spacing: -0.04em; line-height: 1.02; }
+  .hero h1 .grad { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; background-size: 200% auto; animation: shine 6s linear infinite; }
+  @keyframes shine { to { background-position: 200% center; } }
+  .typing { font-family: 'JetBrains Mono', monospace; color: var(--muted); margin-top: 24px; font-size: clamp(1rem, 2vw, 1.25rem); min-height: 2em; }
+  .typing::after { content: '▍'; color: var(--a2); animation: blink 1s steps(1) infinite; }
+  @keyframes blink { 50% { opacity: 0; } }
+  .hero-cta { display: flex; gap: 14px; margin-top: 40px; flex-wrap: wrap; }
+  .btn {
+    padding: 14px 28px; border-radius: 999px; font-weight: 600; font-size: .95rem;
+    border: 1px solid var(--border); transition: transform .2s, box-shadow .2s, background .2s;
+  }
+  .btn-primary { background: var(--grad); border: none; color: #fff; box-shadow: 0 10px 40px -10px rgba(124,92,255,.6); }
+  .btn-ghost { background: var(--surface); }
+  .btn:hover { transform: translateY(-2px); }
+  .stats { display: flex; gap: 48px; margin-top: 72px; flex-wrap: wrap; }
+  .stat strong { display: block; font-size: 2rem; font-weight: 800; background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .stat span { color: var(--muted); font-size: .85rem; }
 
-        .navbar a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
+  /* CARDS */
+  .card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 20px;
+    padding: 28px; position: relative; overflow: hidden;
+    transition: transform .3s, border-color .3s;
+    transform-style: preserve-3d;
+  }
+  .card::before {
+    content: ''; position: absolute; inset: 0; opacity: 0; transition: opacity .3s;
+    background: radial-gradient(400px circle at var(--mx, 50%) var(--my, 50%), rgba(34,211,238,.12), transparent 40%);
+    pointer-events: none;
+  }
+  .card:hover::before { opacity: 1; }
+  .card:hover { border-color: rgba(124,92,255,.5); }
+  .card h3 { font-size: 1.15rem; margin-bottom: 8px; }
+  .card p { color: var(--muted); font-size: .95rem; }
+  .icon { font-size: 1.8rem; margin-bottom: 16px; }
 
-        .navbar a:hover {
-            color: #0073ff;
-        }
+  /* SKILLS */
+  .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin-top: 56px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+  .tag { font-family: 'JetBrains Mono', monospace; font-size: .75rem; padding: 5px 10px; border-radius: 6px; background: rgba(255,255,255,.05); border: 1px solid var(--border); color: #c9ccd8; }
+  .meter { margin-top: 18px; }
+  .meter-row { display: flex; justify-content: space-between; font-size: .8rem; color: var(--muted); margin-bottom: 6px; }
+  .bar { height: 6px; background: rgba(255,255,255,.06); border-radius: 99px; overflow: hidden; margin-bottom: 12px; }
+  .bar i { display: block; height: 100%; width: 0; background: var(--grad); border-radius: 99px; transition: width 1.4s cubic-bezier(.2,.8,.2,1); }
 
-        /* Hero */
-        .hero {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            min-height: 90vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: #222;
-            padding: 40px 20px;
-        }
+  /* PROJECTS */
+  .projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 22px; margin-top: 56px; }
+  .project .thumb {
+    height: 140px; border-radius: 14px; margin-bottom: 20px;
+    display: flex; align-items: center; justify-content: center; font-size: 3rem;
+    background: linear-gradient(135deg, rgba(124,92,255,.35), rgba(34,211,238,.18));
+    border: 1px solid var(--border);
+  }
+  .project:nth-child(2) .thumb { background: linear-gradient(135deg, rgba(34,211,238,.3), rgba(244,114,182,.15)); }
+  .project:nth-child(3) .thumb { background: linear-gradient(135deg, rgba(244,114,182,.3), rgba(124,92,255,.2)); }
+  .project:nth-child(4) .thumb { background: linear-gradient(135deg, rgba(34,211,238,.25), rgba(124,92,255,.25)); }
+  .project .metric { font-family: 'JetBrains Mono', monospace; color: var(--a2); font-size: .85rem; margin-bottom: 10px; }
 
-        .hero-content {
-            max-width: 800px;
-        }
+  /* ABOUT */
+  .about { display: grid; grid-template-columns: 1.1fr 1fr; gap: 60px; align-items: center; }
+  .timeline { border-left: 1px solid var(--border); padding-left: 28px; display: grid; gap: 30px; }
+  .timeline div { position: relative; }
+  .timeline div::before {
+    content: ''; position: absolute; left: -34px; top: 6px; width: 11px; height: 11px;
+    border-radius: 50%; background: var(--grad); box-shadow: 0 0 14px var(--a1);
+  }
+  .timeline strong { display: block; }
+  .timeline span { color: var(--muted); font-size: .92rem; }
 
-        .hero-content h2 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: #222;
-        }
+  /* CONTACT */
+  .contact { text-align: center; }
+  .contact .sub { margin: 0 auto 40px; }
+  .links { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
+  footer { text-align: center; color: var(--muted); font-size: .85rem; padding: 40px 6vw; border-top: 1px solid var(--border); }
 
-        .hero-content span {
-            color: #0073ff;
-        }
+  /* REVEAL */
+  .reveal { opacity: 0; transform: translateY(40px); transition: opacity .9s ease, transform .9s cubic-bezier(.2,.8,.2,1); }
+  .reveal.in { opacity: 1; transform: none; }
 
-        .hero-subtitle {
-            font-size: 1.3rem;
-            color: #666;
-            margin-bottom: 20px;
-            font-weight: 400;
-        }
-
-        .hero-description {
-            font-size: 1.1rem;
-            color: #777;
-            line-height: 1.6;
-            margin-bottom: 40px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 14px 32px;
-            font-size: 1rem;
-            font-weight: 500;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .btn-primary {
-            background: #000;
-            color: #fff;
-        }
-
-        .btn-primary:hover {
-            background: #333;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: #222;
-            border: 2px solid #222;
-        }
-
-        .btn-secondary:hover {
-            background: #222;
-            color: #fff;
-            transform: translateY(-2px);
-        }
-
-        /* Sections */
-        .section-title {
-            text-align: center;
-            margin-top: 80px;
-            font-size: 2rem;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: #555;
-            margin-bottom: 40px;
-        }
-
-        /* About */
-        .about {
-            padding: 80px 10%;
-        }
-
-        .about-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 40px;
-            flex-wrap: wrap;
-        }
-
-        .about-text {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .about-text p {
-            text-align: justify;
-            font-size: 1.15rem;
-            line-height: 1.8;
-            color: #444;
-        }
-
-        .about-image {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-        }
-
-        .about-image img {
-            width: 100%;
-            max-width: 450px;
-            border-radius: 10px;
-        }
-
-       /* Skills */
-        .skills {
-            padding: 80px 10%;
-        }
-        
-        .skills-container {
-            display: flex;
-            justify-content: center;
-            gap: 80px; /* Increased gap for more spacing */
-            flex-wrap: wrap;
-            text-align: center;
-        }
-        
-        .skill {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-            width: auto;
-            transition: transform 0.3s;
-            background: transparent; /* No box around text */
-        }
-        
-        .skill:hover {
-            transform: translateY(-5px);
-        }
-        
-        .icon-container {
-            width: 80px;
-            height: 80px;
-            background-color: #f0f0f0; /* Light gray circle */
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-        
-        .icon {
-            font-size: 2.5rem; /* Adjusted to match screenshot size */
-            color: #333; /* Dark gray/black to match screenshot */
-        }
-        
-        .skill h3 {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #333;
-        }
-        
-        .skill p {
-            font-size: 1rem;
-            color: #777;
-            line-height: 1.6;
-            max-width: 350px; /* Increased max-width to prevent early wrapping */
-        }
-
-        /* Projects */
-        .projects {
-            padding: 80px 10%;
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        .project-card {
-            background: #fff;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-        }
-
-        .project-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .project-info {
-            padding: 20px;
-        }
-
-        .project-info h3 {
-            margin-bottom: 10px;
-        }
-
-        .project-info p {
-            color: #666;
-            margin-bottom: 15px;
-        }
-
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .tags span {
-            background: #e3f2fd;
-            color: #0073ff;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-        }
-
-        /* Modals */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            justify-content: center;
-            align-items: center;
-            z-index: 2000;
-        }
-
-        .modal-content {
-            background: #fff;
-            padding: 40px;
-            border-radius: 10px;
-            max-width: 600px;
-            width: 90%;
-            color: #333;
-            max-height: 80vh;
-            overflow-y: auto;
-        }
-
-        .close {
-            float: right;
-            text-align: justify;
-            font-size: 28px;
-            cursor: pointer;
-            color: #666;
-        }
-
-        .close:hover {
-            color: #000;
-        }
-
-        /* Contact */
-        .contact {
-            padding: 80px 10%;
-            background: #fff; /* White background for the section */
-        }
-
-        .contact-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 60px; /* Increased gap between form and info */
-            justify-content: center;
-        }
-
-        .contact-form,
-        .contact-info {
-            flex: 1 1 400px; /* Flex properties for responsiveness */
-            min-width: 320px;
-        }
-        
-        .contact-form h3 {
-            font-size: 1.2rem;
-            font-weight: 400;
-            color: #555;
-            margin-bottom: 30px;
-        }
-
-        .contact-form label {
-            display: block;
-            margin: 15px 0 8px;
-            font-weight: 500;
-            color: #333;
-        }
-
-        .contact-form input,
-        .contact-form textarea {
-            width: 100%;
-            padding: 15px;
-            border: none;
-            border-radius: 8px;
-            background: #f7f7f7; /* Light gray background for inputs */
-            font-size: 1rem;
-        }
-        
-        .contact-form textarea {
-            min-height: 120px;
-            resize: vertical;
-        }
-
-        .contact-form button {
-            margin-top: 20px;
-            padding: 15px 35px;
-            border: none;
-            background: #000; /* Black button */
-            color: #fff;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: 500;
-            transition: background 0.3s;
-        }
-
-        .contact-form button:hover {
-            background: #333;
-        }
-
-        .contact-info .info-box {
-            background: #fff;
-            padding: 25px;
-            margin-bottom: 25px;
-            border-radius: 8px;
-            border: 1px solid #e9e9e9; /* Subtle border */
-        }
-        
-        .contact-info .info-box h3 {
-            font-size: 1.1rem;
-            margin-bottom: 20px;
-        }
-
-        .contact-info ul {
-            list-style: none;
-        }
-
-        .contact-info li {
-            margin-bottom: 20px;
-            font-size: 1rem;
-        }
-        
-        .contact-info li:last-child {
-            margin-bottom: 0;
-        }
-
-        .contact-info li a {
-            text-decoration: none;
-            color: #333;
-            display: flex;
-            align-items: center;
-            font-weight: 500;
-        }
-
-        .contact-info i {
-            font-size: 1.4rem;
-            margin-right: 15px;
-            width: 25px;
-            text-align: center;
-            color: #555;
-        }
-        
-        .contact-info .info-box p {
-            color: #666;
-            line-height: 1.7;
-        }
-
-        footer {
-            text-align: center;
-            padding: 30px;
-            background: #fff;
-            color: #666;
-            font-size: 0.9rem;
-            border-top: 1px solid #e9e9e9;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero-content h2 {
-                font-size: 2.5rem;
-            }
-
-            .hero-subtitle {
-                font-size: 1.1rem;
-            }
-
-            .navbar {
-                padding: 15px 5%;
-            }
-
-            .about,
-            .projects,
-            .contact,
-            .skills {
-                padding: 60px 5%;
-            }
-        }
-    </style>
+  @media (max-width: 860px) {
+    nav ul { display: none; }
+    .about { grid-template-columns: 1fr; gap: 40px; }
+    section { padding: 90px 6vw; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    .reveal { opacity: 1; transform: none; }
+  }
+</style>
 </head>
-
 <body>
-    <!-- Header -->
-    <header class="navbar">
-        <h1 class="logo">Portfolio</h1>
-        <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <!-- Hero -->
-    <section class="hero">
-        <div class="hero-content">
-            <h2>Hi, I'm <span>Parsa Karami</span></h2>
-            <p class="hero-subtitle">Embedded System Developer & Edge AI Enthusiast</p>
-            <p class="hero-description">I solve problems and find solution for challenges, and the only things I need are computer and internet.</p>
-            <div class="hero-buttons">
-                <a href="#projects" class="btn btn-primary">View My Work →</a>
-                <a href="#contact" class="btn btn-secondary">Get in Touch</a>
-            </div>
-        </div>
-    </section>
+<canvas id="particles"></canvas>
+<div class="glow" id="glow"></div>
 
-    <!-- About -->
-    <section id="about" class="about">
-        <h2 class="section-title">About Me</h2>
-        <p class="section-subtitle">Turning ideas into reality through code and hardware</p>
-        <div class="about-content">
-            <div class="about-text">
-                <p>
-                    I am Parsa Karami, an electrical engineering graduate. My passion lies in embedded systems, IoT, and machine learning; combining these three majors can yield fascinating projects. Right now, I'm studying quantum materials at Khatam University with the cooperation of Sorbonne University Pierre and Marie Curie, where I was selected as the only electrical student among the electrical candidates. Currently, exploring research positions in the mentioned fields, digital signal processing, and the communication area.
-                </p>
-            </div>
-            <div class="about-image">
-                <img src="Parsa picture.jpg" alt="Parsa Karami">
-            </div>
-        </div>
-    </section>
+<nav>
+  <div class="logo">parsa<span>.dev</span></div>
+  <ul>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
 
-    <!-- Skills -->
-    <section id="skills" class="skills">
-        <div class="skills-container">
-            <div class="skill">
-                <div class="icon-container">
-                    <i class="fas fa-microchip icon"></i>
-                </div>
-                <h3>Embedded Systems</h3>
-                <p>Expert in AVR, Arduino, ESP32 and familiar with ARM architecture.</p>
-            </div>
-            <div class="skill">
-                <div class="icon-container">
-                    <i class="fas fa-wifi icon"></i>
-                </div>
-                <h3>IoT</h3>
-                <p>An IoT devotee who loves to connect devices to each other and collect data.</p>
-            </div>
-            <div class="skill">
-                <div class="icon-container">
-                    <i class="fas fa-brain icon"></i>
-                </div>
-                <h3>AI</h3>
-                <p>Combining AI algorithms with embedded systems or developing solutions from collected data to make things more interesting and easier.</p>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Projects -->
-    <section id="projects" class="projects">
-        <h2 class="section-title">Projects</h2>
-        <div class="projects-grid">
-            <div class="project-card" onclick="openModal('modal1')">
-                <img src="indoor.jpg" alt="Indoor Tracking with BLEs">
-                <div class="project-info">
-                    <h3>Indoor Tracking with BLEs</h3>
-                    <p>Developed a BLE-based system to estimate indoor locations with accuracy improvements.</p>
-                    <div class="tags">
-                        <span>NRF</span><span>BLE</span><span>Python</span><span>Signal Processing</span><span>IoT</span>
-                    </div>
-                </div>
-            </div>
-            <div class="project-card" onclick="openModal('modal2')">
-                <img src="person detection.jpg" alt="Person Detection on ESP32-CAM">
-                <div class="project-info">
-                    <h3>Person Detection on ESP32-CAM</h3>
-                    <p>Implemented a lightweight CNN model for real-time detection on low-power hardware.</p>
-                    <div class="tags">
-                        <span>ESP32-CAM</span><span>Edge AI</span><span>Python</span><span>ESP-DL</span><span>ESP-IDF</span><span>Embedded systems</span><span>C/C++</span>
-                    </div>
-                </div>
-            </div>
-            <div class="project-card" onclick="openModal('modal3')">
-                <img src="acceleration.jpg" alt="Machine Learning-Based Speed Detection">
-                <div class="project-info">
-                    <h3>Speed Prediction Using Accelerometer</h3>
-                    <p>Used KAN models to estimate vehicle speed from acceleration data.</p>
-                    <div class="tags">
-                        <span>Python</span><span>Machine learning</span><span>Embedded systems</span>
-                    </div>
-                </div>
-            </div>
-            <div class="project-card" onclick="openModal('modal4')">
-                <img src="charging car.jpg" alt="Driving Cycle of Tehran">
-                <div class="project-info">
-                    <h3>Driving Cycle of Tehran</h3>
-                    <p>Analyzed driving patterns to create a representative driving cycle for energy research.</p>
-                    <div class="tags">
-                        <span>Python</span><span>Data Analysis</span><span>Vehicle Dynamics</span><span>Urban Planning</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Project Modals -->
-    <div id="modal1" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('modal1')">&times;</span>
-            <h3>Indoor Tracking with BLEs</h3>
-            <p>The indoor tracking project aimed to estimate a target location in GPS-denial environments, where we cannot navigate or locate assets. During this project I tried different approaches, but none of them satisfy my expectation I want under 1.5m error. Traditional methods only encountered this error with BLE 4.2, which was the Bluetooth version I had to use. Therefore, I invented a novel, robust approach that was unaffected by environmental changes. In this approach, I use the strongest RSSI reading as the primary point, then draw a circle around the strongest beacon. In the next step, innovative weighting systems assign weights to the RSSI values of neighbor beacons and help estimate the target location. In the project, the yield was almost 75cm, which was not reached with this BLE version.</p>
-        </div>
-    </div>
-    <div id="modal2" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('modal2')">&times;</span>
-            <h3>Person Detection on ESP32-CAM</h3>
-            <p>In this project, my team and I fine-tuned a YOLOv11 model for deployment on an ESP32-S3-CAM, which has only 8 MB of flash and 4 MB of PSRAM. Our first model took 26 seconds to process and estimate the number of people in a frame, which was not good for us at all. Therefore, we reduced the model size and, through adjustments, reached 4 seconds. It was also not appropriate; we even had to take a step further and reduce the model to 1MB, reaching 250ms at the end.</p>
-        </div>
-    </div>
-    <div id="modal3" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('modal3')">&times;</span>
-            <h3>Speed Prediction Using Accelerometer</h3>
-            <p>During one of my last projects, I encountered a problem in which I could not calculate speed from acceleration data due to white noise, sensor biases, and sensor inaccuracies. As a result, I decided to overcome this challenge with machine learning algorithms. At the first step, I used the Neo-M8 GPS sensor to collect speed data for my labels, and the ADXL345 for my acceleration data. I then synchronized them. In the next step, I performed feature engineering on the acceleration data to extract additional information. I used various machine learning algorithms, including linear regression, decision trees, XGBoost, and neural networks, to predict speed from acceleration. At the end, I reached 12% RMSE on a 0-120km scale. </p>
-        </div>
-    </div>
-    <div id="modal4" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('modal4')">&times;</span>
-            <h3>Driving Cycle of Tehran</h3>
-            <p>The driving cycle project was meant to extract data on the driving cycle in Tehran. The final goal of this project was to determine the optimal location for an electric bus charging station in Tehran. In this project, my team and I collect data and present the Tehran driving cycle under four conditions: highway, urban, and congested. We divided our whole trip into micro-trips when the speed dropped to zero and the car stopped.</p>
-        </div>
-    </div>
-
-    <!-- Contact -->
-    <section id="contact" class="contact">
-    <div class="contact-container">
-        <div class="contact-form">
-            <h3>If there is any question about my project I appreciate to answer and help</h3>
-            <label for="name">Name</label>
-            <input type="text" id="name" placeholder="Your name">
-            <label for="email">Email</label>
-            <input type="email" id="email" placeholder="karami.parsa2001@gmail.com">
-            <label for="message">Message</label>
-            <textarea id="message" rows="4" placeholder=""></textarea>
-            <button type="submit">Send Message</button>
-        </div>
-
-        <div class="contact-info">
-            <div class="info-box">
-                <h3>Find me on these platforms</h3>
-                <ul>
-                    <!-- Links are now clickable -->
-                    <li><a href="mailto:karami.parsa2001@gmail.com"><i class="fas fa-envelope"></i> Email</a></li>
-                    <li><a href="https://www.linkedin.com/in/parsa-karami-5b335321a/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
-                    <li><a href="https://github.com/parsa-karami" target="_blank"><i class="fab fa-github"></i> GitHub</a></li>
-                </ul>
-            </div>
-            <div class="info-box">
-                <h3>Let's Work Together</h3>
-                <p>Whether you have a question or just want to say hi, feel free to reach out!</p>
-            </div>
-        </div>
-    </div>
+<!-- HERO -->
+<section class="hero">
+  <span class="label reveal">// hello, world</span>
+  <h1 class="reveal">I build <span class="grad">intelligent</span><br />systems from silicon<br />to the cloud.</h1>
+  <div class="typing" id="typing"></div>
+  <div class="hero-cta reveal">
+    <a class="btn btn-primary" href="#projects">View my work →</a>
+    <a class="btn btn-ghost" href="#contact">Get in touch</a>
+  </div>
+  <div class="stats reveal">
+    <div class="stat"><strong data-count="4">0</strong><span>Shipped projects</span></div>
+    <div class="stat"><strong data-count="250">0</strong><span>ms edge inference</span></div>
+    <div class="stat"><strong data-count="75">0</strong><span>cm indoor accuracy</span></div>
+    <div class="stat"><strong data-count="1">0</strong><span>MB model on MCU</span></div>
+  </div>
 </section>
 
-    <footer>
-        <p>© 2025 Parsa Karami. All rights reserved.</p>
-    </footer>
+<!-- SKILLS -->
+<section id="skills">
+  <span class="label reveal">// capabilities</span>
+  <h2 class="reveal">Full stack, all the way down.</h2>
+  <p class="sub reveal">From the frontend users touch, to the backend that runs the logic, to the firmware and models that run on bare metal.</p>
 
-    <script>
-        function openModal(id) {
-            document.getElementById(id).style.display = 'flex';
-        }
+  <div class="grid-4">
+    <div class="card reveal">
+      <div class="icon">🎨</div>
+      <h3>Frontend</h3>
+      <p>Responsive, animated interfaces with a focus on performance and detail.</p>
+      <div class="tags"><span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript</span><span class="tag">Canvas</span><span class="tag">Three.js</span></div>
+    </div>
+    <div class="card reveal">
+      <div class="icon">⚙️</div>
+      <h3>Backend</h3>
+      <p>APIs, data pipelines and services designed to be fast and dependable.</p>
+      <div class="tags"><span class="tag">Python</span><span class="tag">REST APIs</span><span class="tag">SQL</span><span class="tag">Node.js</span><span class="tag">Docker</span></div>
+    </div>
+    <div class="card reveal">
+      <div class="icon">🔌</div>
+      <h3>Embedded Systems</h3>
+      <p>Firmware and hardware for constrained devices, from sensor nodes to vision boards.</p>
+      <div class="tags"><span class="tag">C/C++</span><span class="tag">ESP32</span><span class="tag">ARM</span><span class="tag">AVR</span><span class="tag">Altium</span></div>
+    </div>
+    <div class="card reveal">
+      <div class="icon">🧠</div>
+      <h3>Edge AI</h3>
+      <p>Compressing and deploying neural networks to run in real time on low-power hardware.</p>
+      <div class="tags"><span class="tag">PyTorch</span><span class="tag">YOLO</span><span class="tag">TinyML</span><span class="tag">Signal Processing</span></div>
+    </div>
+  </div>
 
-        function closeModal(id) {
-            document.getElementById(id).style.display = 'none';
-        }
-        
-        window.onclick = function(e) {
-            document.querySelectorAll('.modal').forEach(m => {
-                if (e.target === m) m.style.display = 'none';
-            });
-        };
+  <div class="card reveal" style="margin-top:20px; max-width:760px;">
+    <h3>Proficiency</h3>
+    <div class="meter" style="margin-top:18px">
+      <div class="meter-row"><span>Embedded / C / C++</span><span>95%</span></div><div class="bar"><i data-w="95"></i></div>
+      <div class="meter-row"><span>Python & ML</span><span>90%</span></div><div class="bar"><i data-w="90"></i></div>
+      <div class="meter-row"><span>Backend & APIs</span><span>85%</span></div><div class="bar"><i data-w="85"></i></div>
+      <div class="meter-row"><span>Frontend</span><span>85%</span></div><div class="bar"><i data-w="85"></i></div>
+    </div>
+  </div>
+</section>
 
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-    </script>
+<!-- PROJECTS -->
+<section id="projects">
+  <span class="label reveal">// selected work</span>
+  <h2 class="reveal">Projects that run in the real world.</h2>
+
+  <div class="projects">
+    <article class="card project reveal">
+      <div class="thumb">📡</div>
+      <div class="metric">~75 cm accuracy · GPS-denied</div>
+      <h3>Indoor Tracking with BLE</h3>
+      <p>A novel RSSI-weighted localization method that outperformed traditional BLE 4.2 approaches without environmental sensitivity.</p>
+      <div class="tags"><span class="tag">Python</span><span class="tag">nRF</span><span class="tag">Signal Processing</span><span class="tag">IoT</span></div>
+    </article>
+    <article class="card project reveal">
+      <div class="thumb">📷</div>
+      <div class="metric">26s → 250ms · 1 MB model</div>
+      <h3>Person Detection on ESP32-CAM</h3>
+      <p>A YOLOv11 model fine-tuned and compressed to run real-time person counting on an 8 MB flash microcontroller.</p>
+      <div class="tags"><span class="tag">ESP32-S3</span><span class="tag">Edge AI</span><span class="tag">ESP-IDF</span><span class="tag">C/C++</span></div>
+    </article>
+    <article class="card project reveal">
+      <div class="thumb">📈</div>
+      <div class="metric">12% RMSE · 0–120 km/h</div>
+      <h3>Speed Prediction from Acceleration</h3>
+      <p>Sensor fusion and feature engineering to estimate vehicle speed from noisy accelerometer data using ML models.</p>
+      <div class="tags"><span class="tag">Python</span><span class="tag">XGBoost</span><span class="tag">Neural Nets</span><span class="tag">Embedded</span></div>
+    </article>
+    <article class="card project reveal">
+      <div class="thumb">🚌</div>
+      <div class="metric">Urban driving cycle · Tehran</div>
+      <h3>Driving Cycle Analysis</h3>
+      <p>Field data collection and analysis to model urban driving patterns and find the optimal site for an electric bus charger.</p>
+      <div class="tags"><span class="tag">Python</span><span class="tag">Data Analysis</span><span class="tag">Vehicle Dynamics</span></div>
+    </article>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about">
+    <div>
+      <span class="label reveal">// about</span>
+      <h2 class="reveal">Turning ideas into reality through code and hardware.</h2>
+      <p class="sub reveal">I'm Parsa Karami, an electrical engineer who connects the physical and digital worlds. I care about systems that are efficient, elegant, and useful, whether that means a sensor node, a neural network on a microcontroller, or the interface someone uses to control it.</p>
+    </div>
+    <div class="timeline reveal">
+      <div><strong>Quantum Physics, Master's track</strong><span>Exploring research in quantum materials and signal processing.</span></div>
+      <div><strong>Electrical Engineering, BSc</strong><span>Embedded systems, IoT and machine learning.</span></div>
+      <div><strong>Edge AI Research</strong><span>Deploying compressed models on microcontrollers.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+  <span class="label reveal">// contact</span>
+  <h2 class="reveal">Let's build something together.</h2>
+  <p class="sub reveal">Open to research positions, collaborations, and interesting problems. Say hello.</p>
+  <div class="links reveal">
+    <a class="btn btn-primary" href="mailto:hello@example.com">Email me</a>
+    <a class="btn btn-ghost" href="https://www.linkedin.com/in/parsa-karami-5b335321a/" target="_blank" rel="noopener">LinkedIn</a>
+    <a class="btn btn-ghost" href="https://github.com/parsa-karami" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</section>
+
+<footer>© 2026 Parsa Karami · Built with HTML, CSS & a lot of coffee</footer>
+
+<script>
+// Particle background
+(function () {
+  const c = document.getElementById('particles');
+  const ctx = c.getContext('2d');
+  let w, h, pts = [];
+  function resize() {
+    w = c.width = innerWidth; h = c.height = innerHeight;
+    pts = Array.from({ length: Math.min(90, Math.floor(w * h / 18000)) }, () => ({
+      x: Math.random() * w, y: Math.random() * h,
+      vx: (Math.random() - .5) * .3, vy: (Math.random() - .5) * .3
+    }));
+  }
+  function draw() {
+    ctx.clearRect(0, 0, w, h);
+    for (const p of pts) {
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0 || p.x > w) p.vx *= -1;
+      if (p.y < 0 || p.y > h) p.vy *= -1;
+      ctx.beginPath(); ctx.arc(p.x, p.y, 1.4, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(139,144,163,.6)'; ctx.fill();
+    }
+    for (let i = 0; i < pts.length; i++) for (let j = i + 1; j < pts.length; j++) {
+      const dx = pts[i].x - pts[j].x, dy = pts[i].y - pts[j].y, d = Math.hypot(dx, dy);
+      if (d < 130) {
+        ctx.strokeStyle = `rgba(124,92,255,${(1 - d / 130) * .25})`;
+        ctx.beginPath(); ctx.moveTo(pts[i].x, pts[i].y); ctx.lineTo(pts[j].x, pts[j].y); ctx.stroke();
+      }
+    }
+    requestAnimationFrame(draw);
+  }
+  resize(); addEventListener('resize', resize);
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) draw();
+})();
+
+// Cursor glow
+const glow = document.getElementById('glow');
+addEventListener('mousemove', e => { glow.style.left = e.clientX + 'px'; glow.style.top = e.clientY + 'px'; });
+
+// Card spotlight
+document.querySelectorAll('.card').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const r = card.getBoundingClientRect();
+    card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+    card.style.setProperty('--my', (e.clientY - r.top) + 'px');
+  });
+});
+
+// Typing effect
+(function () {
+  const words = ['Embedded Systems Engineer', 'Edge AI Developer', 'Full-Stack Builder', 'Signal Processing Researcher'];
+  const el = document.getElementById('typing');
+  let wi = 0, ci = 0, deleting = false;
+  function tick() {
+    const word = words[wi];
+    el.textContent = word.slice(0, ci);
+    if (!deleting && ci < word.length) { ci++; setTimeout(tick, 70); }
+    else if (!deleting) { deleting = true; setTimeout(tick, 1600); }
+    else if (ci > 0) { ci--; setTimeout(tick, 35); }
+    else { deleting = false; wi = (wi + 1) % words.length; setTimeout(tick, 300); }
+  }
+  tick();
+})();
+
+// Scroll reveal + skill bars + counters
+const io = new IntersectionObserver(entries => {
+  entries.forEach(en => {
+    if (!en.isIntersecting) return;
+    en.target.classList.add('in');
+    en.target.querySelectorAll('[data-w]').forEach(b => b.style.width = b.dataset.w + '%');
+    en.target.querySelectorAll('[data-count]').forEach(n => {
+      const target = +n.dataset.count, start = performance.now();
+      (function step(t) {
+        const p = Math.min((t - start) / 1200, 1);
+        n.textContent = Math.round(target * (1 - Math.pow(1 - p, 3)));
+        if (p < 1) requestAnimationFrame(step);
+      })(start);
+    });
+    io.unobserve(en.target);
+  });
+}, { threshold: 0.2 });
+document.querySelectorAll('.reveal, .meter').forEach(el => io.observe(el));
+document.querySelectorAll('.stats').forEach(el => io.observe(el));
+</script>
 </body>
-
 </html>
-
-
-
-
-
-
-
