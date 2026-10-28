@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Speed Prediction from Acceleration | Parsa Karami</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="project.css" />
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="index.html#projects">← Back to portfolio</a>
+  <span class="label">// project</span>
+  <h1>Speed Prediction from Acceleration</h1>
+  <div class="metric">12% RMSE · 0–120 km/h</div>
+  <div class="tags"><span class="tag">Python</span><span class="tag">XGBoost</span><span class="tag">Neural Nets</span><span class="tag">Embedded</span></div>
+  <img class="hero-img" src="acceleration.jpg" alt="Speed Prediction from Acceleration" />
+  <h2>Overview</h2>
+  <p>Calculating speed from acceleration data is difficult because of white noise, sensor biases, and sensor inaccuracies. I approached this problem with machine learning instead of direct integration.</p>
+  <h2>Approach</h2>
+  <p>To build the labelled dataset, I used a Neo-M8 GPS module to record speed and an ADXL345 accelerometer to record acceleration, then synchronized the two streams. I performed feature engineering on the acceleration signal to extract additional information.</p>
+  <p>I compared linear regression, decision trees, XGBoost, and neural networks for predicting speed from acceleration. The best result was a 12% RMSE over a 0–120 km/h range.</p>
+  <h2>Stack</h2>
+  <p>Python, XGBoost, neural networks, and embedded sensor data acquisition.</p>
+  <div style="margin-bottom:24px"><a class="btn" href="https://github.com/parsa-karami?tab=repositories" target="_blank" rel="noopener">View on GitHub →</a></div>
+</div>
+<footer>© 2026 Parsa Karami</footer>
+</body>
+</html>
