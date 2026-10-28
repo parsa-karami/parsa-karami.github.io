@@ -143,6 +143,10 @@
   .reveal { opacity: 0; transform: translateY(40px); transition: opacity .9s ease, transform .9s cubic-bezier(.2,.8,.2,1); }
   .reveal.in { opacity: 1; transform: none; }
 
+  .thumb-img { width: 100%; height: 140px; object-fit: cover; border-radius: 14px; margin-bottom: 20px; border: 1px solid var(--border); display: block; }
+  .project h3 a:hover { color: var(--a2); }
+  .about-photo img { width: 100%; max-width: 360px; border-radius: 20px; border: 1px solid var(--border); display: block; }
+
   @media (max-width: 860px) {
     nav ul { display: none; }
     .about { grid-template-columns: 1fr; gap: 40px; }
@@ -237,30 +241,30 @@
 
   <div class="projects">
     <article class="card project reveal">
-      <div class="thumb">📡</div>
+      <img class="thumb-img" src="indoor.jpg" alt="Indoor BLE tracking setup" />
       <div class="metric">~75 cm accuracy · GPS-denied</div>
-      <h3>Indoor Tracking with BLE</h3>
+      <h3><a href="project-ble.html" target="_blank" rel="noopener">Indoor Tracking with BLE ↗</a></h3>
       <p>A novel RSSI-weighted localization method that outperformed traditional BLE 4.2 approaches without environmental sensitivity.</p>
       <div class="tags"><span class="tag">Python</span><span class="tag">nRF</span><span class="tag">Signal Processing</span><span class="tag">IoT</span></div>
     </article>
     <article class="card project reveal">
-      <div class="thumb">📷</div>
+      <img class="thumb-img" src="person%20detection.jpg" alt="Person detection on ESP32-CAM" />
       <div class="metric">26s → 250ms · 1 MB model</div>
-      <h3>Person Detection on ESP32-CAM</h3>
+      <h3><a href="project-person-detection.html" target="_blank" rel="noopener">Person Detection on ESP32-CAM ↗</a></h3>
       <p>A YOLOv11 model fine-tuned and compressed to run real-time person counting on an 8 MB flash microcontroller.</p>
       <div class="tags"><span class="tag">ESP32-S3</span><span class="tag">Edge AI</span><span class="tag">ESP-IDF</span><span class="tag">C/C++</span></div>
     </article>
     <article class="card project reveal">
-      <div class="thumb">📈</div>
+      <img class="thumb-img" src="acceleration.jpg" alt="Speed prediction from accelerometer" />
       <div class="metric">12% RMSE · 0–120 km/h</div>
-      <h3>Speed Prediction from Acceleration</h3>
+      <h3><a href="project-speed.html" target="_blank" rel="noopener">Speed Prediction from Acceleration ↗</a></h3>
       <p>Sensor fusion and feature engineering to estimate vehicle speed from noisy accelerometer data using ML models.</p>
       <div class="tags"><span class="tag">Python</span><span class="tag">XGBoost</span><span class="tag">Neural Nets</span><span class="tag">Embedded</span></div>
     </article>
     <article class="card project reveal">
-      <div class="thumb">🚌</div>
+      <img class="thumb-img" src="charging%20car.jpg" alt="Driving cycle of Tehran" />
       <div class="metric">Urban driving cycle · Tehran</div>
-      <h3>Driving Cycle Analysis</h3>
+      <h3><a href="project-driving-cycle.html" target="_blank" rel="noopener">Driving Cycle Analysis ↗</a></h3>
       <p>Field data collection and analysis to model urban driving patterns and find the optimal site for an electric bus charger.</p>
       <div class="tags"><span class="tag">Python</span><span class="tag">Data Analysis</span><span class="tag">Vehicle Dynamics</span></div>
     </article>
@@ -273,8 +277,9 @@
     <div>
       <span class="label reveal">// about</span>
       <h2 class="reveal">Turning ideas into reality through code and hardware.</h2>
-      <p class="sub reveal">I'm Parsa Karami, an electrical engineer who connects the physical and digital worlds. I care about systems that are efficient, elegant, and useful, whether that means a sensor node, a neural network on a microcontroller, or the interface someone uses to control it.</p>
+      <p class="sub reveal">I am Parsa Karami, an electrical engineering graduate. My passion lies in embedded systems, IoT, and machine learning; combining these three majors can yield fascinating projects. I also have a background in frontend and backend development, so I can take a project from the sensor to the interface. Right now, I'm studying quantum materials at Khatam University with the cooperation of Sorbonne University Pierre and Marie Curie, where I was selected as the only electrical student among the electrical candidates. Currently, I'm exploring research positions in the mentioned fields, digital signal processing, and the communication area.</p>
     </div>
+    <div class="about-photo reveal"><img src="Parsa%20picture.jpg" alt="Parsa Karami" /></div>
     <div class="timeline reveal">
       <div><strong>Quantum Physics, Master's track</strong><span>Exploring research in quantum materials and signal processing.</span></div>
       <div><strong>Electrical Engineering, BSc</strong><span>Embedded systems, IoT and machine learning.</span></div>
